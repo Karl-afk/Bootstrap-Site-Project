@@ -1,0 +1,171 @@
+$primary: #fed136;
+$page-menu-size: 175px;
+$header-jumbotron-height: 300px;
+$section-heading: 120px;
+$section-color-secondary: #f7f7f7;
+
+@import "lib/bootstrap/scss/bootstrap";
+
+.page-header{
+    background-image: url('./images/header-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 0%;
+}
+
+.navbar-brand {
+    padding-top: 0.2rem;
+    color: $primary;
+    font-style: italic;
+}
+.header-jumbotron {
+    color: white;
+    height: $header-jumbotron-height;
+    @include media-breakpoint-up(md) {
+        height: $header-jumbotron-height + 100px;
+    }
+    h2 {
+        font-style: italic;
+    }
+}
+.services, .portfolio, .about, .team, .contact {
+    padding-top: $section-heading;
+    padding-bottom: $section-heading;
+}
+.icon-border {
+    border: 2px solid $primary;
+    border-radius: 50%;
+    color: $primary;
+    padding: 12px;
+    width: 50px;
+    height: 50px;
+    // position: relative;
+    // left: 85px;
+    i {
+        font-size: 26px;
+    }
+}
+.font-services {
+    font-size: 12px;
+}
+.portfolio {
+    background-color: $section-color-secondary;
+}
+.portfolio-sections {
+    background-color: $section-color-secondary !important;
+}
+
+.about-img {
+    border-radius: 50%;
+    border: 5px solid $section-color-secondary;
+}
+
+@include media-breakpoint-up(md) {
+    .about-list {
+        background: -o-linear-gradient(left, white 0%, white calc(50% - 1px), $section-color-secondary calc(50% - 1px), $section-color-secondary calc(50% + 1px), white calc(50% + 1px), white 100%);
+        background: linear-gradient(to right, white 0%, white calc(50% - 1px), $section-color-secondary calc(50% - 1px), $section-color-secondary calc(50% + 1px), white calc(50% + 1px), white 100%);
+    }
+    .row:last-child {
+        background-color: #fff;
+    }
+}
+.team {
+    background-color: $section-color-secondary;
+    .row {
+        background-color: $section-color-secondary;
+    }
+    .team-img {
+        border-radius: 50%;
+        max-width: 65%;
+    }
+    .teams-icon {
+        cursor: pointer;
+        -webkit-transition: -webkit-transform .3s;
+        transition: -webkit-transform .3s;
+        -o-transition: transform .3s;
+        transition: transform .3s;
+        transition: transform .3s, -webkit-transform .3s;
+    }
+    .teams-icon:hover {
+        -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+                transform: scale(1.1);
+    }
+}
+.contact {
+    background-color: #222;
+    color: #fff;
+    .row {
+        background-color: #222;
+    }
+    .contact-message {
+        height: 5rem;
+        @include media-breakpoint-up(sm) {
+            height: 100%;
+        }
+    }
+}
+.footer {
+    
+    .footer-icon {
+        display: inline-block;
+        text-decoration: none;
+        width: 2rem;
+        height: 2rem;
+        background-color: #222;
+        color: white;
+        border-radius: 50%;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+//Page menu
+
+
+
+body {
+    overflow-x: hidden;
+}
+
+#page {
+    position: relative;
+    left: 0px;
+    -webkit-transition: all 300ms;
+    -o-transition: all 300ms;
+    transition: all 300ms;
+    -webkit-transform: translate(0px, 0px);
+        -ms-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+    &.mobile-nav-opened {
+        // left: -$page-menu-size;
+        -webkit-transform: translate($page-menu-size, 0px);
+            -ms-transform: translate($page-menu-size, 0px);
+                transform: translate($page-menu-size, 0px);
+    }
+
+    .mobile-nav {
+        position: absolute;
+        left: -$page-menu-size;
+        width: $page-menu-size;
+        top: 0px;
+        bottom: 0px;
+        background-color: $section-color-secondary;
+        
+        &-link {
+            text-decoration: none;
+            border-left: none;
+            border-right: none;
+            background-color: $section-color-secondary;
+        }
+        &-link:last-child {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        &-link:first-child {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
+}
